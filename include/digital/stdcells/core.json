@@ -1,0 +1,32 @@
+{
+    "cells":
+    [
+		{ "name": "TIEH_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","A","MN0:G-|--MN0:D"],
+                                      ["PO","A","MN0:G-MP0:G"] ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["Y","M1", "MP0:D"] ]
+          }
+        },
+
+		//-----------------------------------------------------------------------------
+		// Inverters
+		//-----------------------------------------------------------------------------
+		
+		{ "name": "IVX1_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","Y","MN:D-|--MP:D"],
+                                      ["PO","A","MN:G-MP:G"] ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["A","M1", "MN0:G"] , ["Y", "M1", "MN0:D"]]
+          }
+        }
+
+		
+	]
+}
