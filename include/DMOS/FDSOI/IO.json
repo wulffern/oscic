@@ -1,0 +1,102 @@
+{
+    "cells" :
+    [
+        { "name" : "DMOSE" ,
+          "class" : "Gds::GdsPatternTransistor",
+          "afterNew" : {
+              "minPolyLength" : 36
+          },
+          "yoffset": -1.5,
+          "heightoffset": -2,
+          "widthoffset" : -1,
+          "fillCoordinatesFromStrings" : [
+              [   "OD",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-----xxxx----------xxxx",
+                  "-----xCxC----------xCxC",
+                  "-----xxxx----------xxxx",
+                  "-----xxxx----------xxxx",
+                  "-----xxxx----------xxxx",
+                  "-----xCxC----------xCxC",
+                  "-----xxxx----------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx"
+              ],
+              [   "PO",
+                  "-----------------------",
+                  "--mmmmmmmmmmmmm--------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "--mmmmmmmmmmcmc--------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "-----------------------",
+                  "--mmmmmmmmmmmmm--------",
+                  "-----------------------"
+              ],
+              [   "M1",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-----wDww----------xxxx",
+                  "-------------------xxxx",
+                  "------------wGww---xBxx",
+                  "-------------------xxxx",
+                  "-----wSww----------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx",
+                  "-------------------xxxx"
+              ]
+          ]
+        },
+
+        { "name" : "PCHDEL",
+          "inherit" : "DMOSE",
+          "type" : "pch_lvt_io",
+          "beforePlace" :{
+              "addEnclosures" : [
+                  ["OD",1,["PPE","LVT","HS"]],
+                  ["OD",0,["PP","NSS"]]
+              ],
+              "addEnclosuresByRectangle" : [
+                  ["OD",[0,0,"width","height"],["OD2"]],
+                  ["OD",[0,0,11,"height"],["HS"]]
+              ]
+          }
+        },
+
+
+
+        { "name" : "NCHDEL",
+          "inherit" : "DMOSE",
+          "xoffset" : -2,
+          "afterNew" : {
+              "mirrorPatternString" : 1
+          },
+          "type" : "nch_lvt_io",
+          "beforePlace" :{
+              "addEnclosures" : [
+                  ["OD",1,["LVT"]]
+              ],
+              "addEnclosuresByRectangle" : [
+                  ["OD",[0,0,"width","height"],["NW","HS","OD2"]],
+                  ["OD",[0,0,4,"height"],["NSSN"]]
+              ]
+          }
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+	"include" :
+    [
+		"dmos/fdsoi/core.json",
+        "digital/stdcells/core.json"
+
+    ]
+}

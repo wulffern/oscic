@@ -1,0 +1,61 @@
+{
+    "cells":
+    [
+        { "name" : "DMOS" ,
+          "class" : "Gds::GdsPatternTransistor",
+          "yoffset": -0.5,
+          "type": "pch",
+          "widthoffset" : -1,
+          "fillCoordinatesFromStrings" : [
+              [   "OD",
+                  "-------------------xxxx",
+                  "-----xCxC----------xCxC",
+                  "-----xxxx----------xxxx",
+                  "-----xCxC----------xCxC",
+                  "-------------------xxxx"
+              ],
+              [   "PO",
+                  "--mmmmmmmmmmmmm--------",
+                  "-----------------------",
+                  "--mmmmmmmmmmcxc--------",
+                  "-----------------------",
+                  "--mmmmmmmmmmmmm--------"
+              ],
+              [   "M1",
+                  "-------------------xxxx",
+                  "-----wDww----------xxxx",
+                  "------------wGww---xBxx",
+                  "-----wSww----------xxxx",
+                  "-------------------xxxx"
+              ]
+          ]
+        },
+        { "name" : "PCHDL",
+          "inherit" : "DMOS",
+          "type" : "pch_lvt",
+          "beforePlace" :{
+              "addEnclosures" : [
+                  ["OD",1,["PP","LVT","HSSOI"]],
+                  ["OD",0,["PP","NOSOI"]]
+              ]
+          }
+        },
+        { "name" : "NCHDL",
+          "inherit" : "DMOS",
+          "xoffset" : -2,
+          "afterNew" : {
+              "mirrorPatternString" : 1
+          },
+          "type" : "nch_lvt",
+          "beforePlace" :{
+              "addEnclosures" : [
+                  ["OD",1,["LVT"]]
+              ],
+              "addEnclosuresByRectangle" : [
+                  ["OD",[0,0,21,5],["NW","HSSOI"]],
+                  ["OD",[0,0,4,5],["NOSOIN"]]
+              ]
+          }
+        }
+    ]
+}

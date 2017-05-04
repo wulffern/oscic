@@ -1,0 +1,4 @@
+[submodule "ciccreator"]
+	path = ciccreator
+	url = https://github.com/wulffern/ciccreator
+	branch = 0.1.0-alpha
