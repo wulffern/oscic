@@ -18,9 +18,14 @@
 ######################################################################
 
 cic=../ciccreator/bin/cic
+cicg=../ciccreator/bin/cic-gui
 cics2aimspice=../ciccreator/scripts/cics2aimspice
 tech=../ciccreator/examples/tech.json
+lib = tb_stdlib
 
-stdlib:
-	cd build; ${cic} --I ../include ../src/tb_stdlib.json ${tech} tb_stdlib
-	cd build; ${cics2aimspice} tb_stdlib.cics tb_stdlib.spice
+compile:
+	cd build; ${cic} --I ../include ../src/${lib}.json ${tech} ${lib}
+	cd build; ${cics2aimspice} ${lib}.cics ${lib}.spice
+
+view:
+	cd build; ${cicg} ${tech} ${lib}.cicl &

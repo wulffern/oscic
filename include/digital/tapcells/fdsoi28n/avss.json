@@ -1,0 +1,30 @@
+{
+	"cells" :
+	[
+		
+		{ "name": "TAPCELL_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "spice" : [ ".SUBCKT  TAPCELL_CV BULKP BULKN",
+                      "MN1 BULKN BULKN BULKN BULKN  NCHDL",
+                      "MP1 BULKP BULKP BULKP BULKP  PCHDL",
+                      ".ENDS"],
+          "beforeRoute" : {
+              "addVias" : [ ["M1", "M4", "MN:D",2]],
+              "addVerticalRects" : [ ["M4","M:D",2]],
+              "addDirectedRoutes" : [ ["M1","TAP","MN1:B-MN1:G"],
+                                      ["M1","TAP","MN1:G-|--MN1:S"],
+                                      ["M1","TAP","MN1:G-|--MN1:D"],
+                                      ["M1","TAP","MP:S-|--MP:G"],
+                                      ["M1","TAP","MP:D-|--MP:G"],
+                                      ["M1","TAP","MP:G-MP:B"],
+                                      ["M1","TAP","MN:D-MP:D"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["TAP", "M1","MN:D" ] ]
+          }
+        }
+
+	]
+
+}
