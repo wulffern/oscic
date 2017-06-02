@@ -1,5 +1,5 @@
 **********************************************************************
-**        Copyright (c) 2017 Carsten Wulff Software, Norway 
+**        Copyright (c) 2017 Carsten Wulff Software, Norway
 ** *******************************************************************
 ** Created       : wulff at 2017-5-14
 ** *******************************************************************
@@ -7,12 +7,12 @@
 **   it under the terms of the GNU General Public License as published by
 **   the Free Software Foundation, either version 3 of the License, or
 **   (at your option) any later version.
-** 
+**
 **   This program is distributed in the hope that it will be useful,
 **   but WITHOUT ANY WARRANTY; without even the implied warranty of
 **   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **   GNU General Public License for more details.
-** 
+**
 **   You should have received a copy of the GNU General Public License
 **   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **********************************************************************
@@ -71,6 +71,15 @@ MP6 Y A AVDD BULKP PCHDL
 MP7 AVDD A Y BULKP PCHDL
 .ends IVX8_CV
 
+.subckt BFX1_CV A Y BULKP BULKN AVDD AVSS 
+MN0 AVSS A B BULKN NCHDL
+MN1 Y B AVSS BULKN NCHDL
+MP0 AVDD A B BULKP PCHDL
+MP1 Y B AVDD BULKP PCHDL
+.ends BFX1_CV
+
+
+
 *-----------------------------------------------------------------------------
 * NAND/NOR
 *-----------------------------------------------------------------------------
@@ -88,6 +97,13 @@ MN1 Y B N1 BULKN NCHDL
 MP0 Y A AVDD BULKP PCHDL
 MP1 AVDD B Y BULKP PCHDL
 .ends NDX1_CV
+
+.subckt ORX1_CV A B Y BULKP BULKN AVDD AVSS
+XA1 A B YN BULKP BULKN AVDD AVSS  NRX1_CV
+XA2 YN Y BULKP BULKN AVDD AVSS  IVX1_CV
+.ends
+
+
 
 
 .subckt IVTRIX1_CV A C CN Y  BULKP BULKN AVDD AVSS

@@ -48,7 +48,7 @@
 
 
 		//-----------------------------------------------------------------------------
-		// Inverters
+		// Inverters/Buffers
 		//-----------------------------------------------------------------------------		
 		{ "name": "IVX1_CV" ,
           "class" : "Layout::LayoutDigitalCell",
@@ -69,6 +69,22 @@
 		{ "name": "IVX2_CV", "inherit" : "IVX1_CV", "setYoffsetHalf" : ""},
 		{ "name": "IVX4_CV", "inherit" : "IVX2_CV"},
 		{ "name": "IVX8_CV" ,"inherit" : "IVX2_CV"},
+
+		{ "name": "BFX1_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" : "",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","B","MN1:G-|--MN0:S"],
+                                      ["PO","A","MN0:G-MP0:G"] ,
+                                      ["PO","B","MN1:G-MP1:G"] ,
+                                      ["M1","B","MN0:S-|--MP0:S"],
+                                      ["M1","Y","MN1:D-|--MP1:D"]
+                                    ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [ ["A","M1","MN0:G"], ["Y","M1","MN1:D"], ["BULKP","M1","MP0:B"], ["BULKN","M1","MN0:B"] ]
+          }
+        },
 
 
 		//-----------------------------------------------------------------------------
@@ -108,6 +124,20 @@
 		//-----------------------------------------------------------------------------
 		// AND/OR
 		//-----------------------------------------------------------------------------
+		{ "name": "ORX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "beforeRoute" : {
+              "TaddDirectedRoutes" : [ ["M1","YN","XA2:MN0:G-|--XA1:MN1:S","offsetlow"]
+                                     ],
+			  "addConnectivityRoutes" : [ ["M1", "^YN$","-|--"]]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1" ,"XA1:MN0:G"], ["B", "M1", "XA1:MN1:G"], ["Y", "M1", "XA2:MN:S" ] ]
+          }
+        },
+        { "name" : "ORX2_CV", "inherit" : "ORX1_CV", "spiceRegex" : [ ["IVX1","IVX2"] ] },
+        { "name" : "ORX4_CV", "inherit" : "ORX1_CV", "spiceRegex" : [ ["IVX1","IVX4"] ] },
 
 
 		//-----------------------------------------------------------------------------
