@@ -63,7 +63,7 @@
 			  ]
           },
           "afterRoute"  : {
-              "addPortOnRects" : [  ["A","M1", "MN0:G"] , ["Y", "M1", "MN0:D"]]
+              "addPortOnRects" : [  ["A","M1", "MN0:G"] , ["Y", "M1", "MN0:D"], ["BULK_P","M1","MP0:B"], ["BULK_N","M1","MN0:B"] ]
           }
         },
 		{ "name": "IVX2_CV", "inherit" : "IVX1_CV", "setYoffsetHalf" : ""},
@@ -85,7 +85,7 @@
                                     ]
           },
           "afterRoute" : {
-              "addPortOnRects" : [ ["A", "M1" ,"MN0:G"], ["B", "M1", "MN1:G"], ["Y", "M1", "MN1:S" ]]
+              "addPortOnRects" : [ ["A", "M1" ,"MN0:G"], ["B", "M1", "MN1:G"], ["Y", "M1", "MN1:S" ], ["BULK_P","M1","MP0:B"], ["BULK_N","M1","MN0:B"]]
           }
         },
 		{ "name": "NDX1_CV" ,
@@ -99,7 +99,7 @@
                                     ]
           },
           "afterRoute" : {
-              "addPortOnRects" : [ ["A", "M1" ,"MN0:G"], ["B", "M1", "MN1:G"], ["Y", "M1", "MN1:D" ]]
+              "addPortOnRects" : [ ["A", "M1" ,"MN0:G"], ["B", "M1", "MN1:G"], ["Y", "M1", "MN1:D" ], ["BULK_P","M1","MP0:B"], ["BULK_N","M1","MN0:B"]]
           }
         },
 
@@ -123,7 +123,7 @@
                                     ]
           },
           "afterRoute" : {
-              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"] ,["Y","M1","MN1:D"]]
+              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"] ,["Y","M1","MN1:D"], ["BULK_P","M1","MP0:B"], ["BULK_N","M1","MN0:B"]]
           }
         },
 		{ "name": "NDTRIX1_CV",
@@ -139,7 +139,7 @@
                                     ]
           },
           "afterRoute" : {
-              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"], ["RN","M1","MN2:G" ],["Y","M1","MN1:D"]]
+              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"], ["RN","M1","MN2:G" ],["Y","M1","MN1:D"], ["BULK_P","M1","MP0:B"], ["BULK_N","M1","MN0:B"]]
           }
         },
 
