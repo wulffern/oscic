@@ -23,10 +23,8 @@
 	},
 	"include" :
     [
-		//"transistor/dmos/fdsoi28n/core.json",
-		//				"transistor/dmos/bulk55n/core.json",
-		"transistor/dmos/fdsoi22n/core.json",
-		"digital/tapcells/fdsoi22n/avss.json",
+		"transistor/dmos/fdsoi28n/core.json",
+		"digital/tapcells/fdsoi28n/avss.json",
         "digital/stdcells/core.json"
 
     ]
