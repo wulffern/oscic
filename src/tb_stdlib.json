@@ -23,9 +23,14 @@
 	},
 	"include" :
     [
-		"transistor/dmos/fdsoi28n/core.json",
+		"passive/capacitor.json",
+		"transistor/amos_fdsoi28n_core.json",
+		"transistor/dmos_fdsoi28n_core.json",
+		"transistor/amos_fdsoi28n_io.json",
 		"digital/tapcells/fdsoi28n/avss.json",
-        "digital/stdcells/core.json"
+		"analog/transmissiongates.json",
+        "digital/stdcells/core.json",
+		"dcdc/capbuck.json"
 
     ]
 }

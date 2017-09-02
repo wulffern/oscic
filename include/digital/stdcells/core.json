@@ -136,6 +136,20 @@
         },
         { "name" : "ORX2_CV", "inherit" : "ORX1_CV", "spiceRegex" : [ ["IVX1","IVX2"] ]	},
         { "name" : "ORX4_CV", "inherit" : "ORX1_CV", "spiceRegex" : [ ["IVX1","IVX4"] ] },
+		{ "name": "ANX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","YN","XA2:MN0:G-|--XA1:MN1:D"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1" ,"XA1:MN0:G"], ["B", "M1", "XA1:MN1:G"], ["Y", "M1", "XA2:MN0:D" ]]
+          }
+        },
+        { "name" : "ANX2_CV", "inherit" : "ANX1_CV", "spiceRegex" : [ ["IVX1","IVX2"] ]},
+        { "name" : "ANX4_CV", "inherit" : "ANX1_CV", "spiceRegex" : [ ["IVX1","IVX4"] ]},
+        { "name" : "ANX8_CV", "inherit" : "ANX1_CV", "spiceRegex" : [ ["IVX1","IVX8"] ]},
 
 
 		//-----------------------------------------------------------------------------
@@ -206,6 +220,36 @@
           },
           "afterRoute" : {
               "addPortOnRects" : [ ["D", "M1"], ["CK", "M1"], ["Q", "M1","XA8:MN0:D"],["QN","M1","XA7:MN1:D"] ,["RN","M2","XA1:MN1:G"]]
+          }
+        },
+
+		//-----------------------------------------------------------------------------
+		// Flip-flop
+		//-----------------------------------------------------------------------------
+		{ "name" : "SCX1_CV",
+          "rows" : 5,
+          "class" : "Layout::LayoutDigitalCell",
+          "boundaryIgnoreRouting" : 0,
+          "beforeRoute" : {
+              "addDirectedRoutes" :[
+                  ["M1","NC","XA4b:D-|--XB4:S"],
+                  ["M1","NC","XB3a:S-|--XB3b:S"],
+                  ["M2","NC","XA5:S-|--XB3b:S","nostart"],
+                  ["M2","NC","XA3:D-|--XB1:D",""],
+				  ["PO","A","XA2:G-XB0:G"],
+				  ["PO","A","XA3:G-XB1:G"]
+              ],
+              "addConnectivityRoutes" : [
+                  ["M1","N1","-|--","",2,""],
+                  ["M1","N2","--|-","",2,""],
+                  ["M1","A$","||","onTopL",2,"NCH"],
+                  ["M1","SCO","-|--","onTopR",2,"PCH"],
+                  ["M1","SCO","--|-","onTopL",2,"NCH"],
+                  ["M1","AVDD","--|-","onTopL",2,"NCH"],
+                  ["M1","Y","-|--","onTopL",2]
+
+              ]
+
           }
         }
 
