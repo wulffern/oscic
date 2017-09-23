@@ -1,0 +1,41 @@
+**********************************************************************
+**        Copyright (c) 2017 Carsten Wulff Software, Norway 
+** *******************************************************************
+** Created       : wulff at 2017-7-16
+** *******************************************************************
+**   This program is free software: you can redistribute it and/or modify
+**   it under the terms of the GNU General Public License as published by
+**   the Free Software Foundation, either version 3 of the License, or
+**   (at your option) any later version.
+** 
+**   This program is distributed in the hope that it will be useful,
+**   but WITHOUT ANY WARRANTY; without even the implied warranty of
+**   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**   GNU General Public License for more details.
+** 
+**   You should have received a copy of the GNU General Public License
+**   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+**********************************************************************
+
+.subckt CAPBUCK_SWITCH_EV VI VO CAP1 CAP2 VN P1 P2 P3 BULKP BULKN AVDD AVSS
+
+XA1 P1 NP VI   BULKP BULKN AVDD AVSS TGX2_EV
+XA2 P3 NP VO   BULKP BULKN AVDD AVSS TGX2_EV
+XA3 P2 NP CAP1 BULKP BULKN AVDD AVSS TGX2_EV
+
+XB6 P1 NN VN   BULKP BULKN AVDD AVSS TGX2_EV
+XB5 P3 NN AVSS BULKP BULKN AVDD AVSS TGX2_EV
+XB4 P2 NN CAP2 BULKP BULKN AVDD AVSS TGX2_EV
+
+
+.ends
+
+.subckt CAPBUCK_CAP_EV NP NN AVSS
+XC4 NP NN AVSS CAPB xoffset=4
+XC5 NP NN AVSS CAPB M=9
+.ends
+
+.subckt CAPBUCK_EV VI VO CAP1 CAP2 VN P1 P2 P3 BULKP BULKN AVDD AVSS
+XA1 VI VO CAP1 CAP2 VN P1 P2 P3 BULKP BULKN AVDD AVSS CAPBUCK_SWITCH_EV
+XA2 NP NN AVSS CAPBUCK_CAP_EV
+.ends

@@ -1,37 +1,51 @@
 //====================================================================
-//        Copyright (c) 2017 Carsten Wulff Software, Norway 
+//        Copyright (c) 2017 Carsten Wulff Software, Norway
 // ===================================================================
-// Created       : wulff at 2017-5-14
+// Created       : wulff at 2017-6-24
 // ===================================================================
 //   This program is free software: you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
 //   the Free Software Foundation, either version 3 of the License, or
 //   (at your option) any later version.
-// 
+//
 //   This program is distributed in the hope that it will be useful,
 //   but WITHOUT ANY WARRANTY; without even the implied warranty of
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //   GNU General Public License for more details.
-// 
+//
 //   You should have received a copy of the GNU General Public License
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //====================================================================
-{
-	"options" :
-	{
-		"ignoreSetYoffsetHalf" : true
-	},
-	"include" :
-    [
-		"passive/capacitor.json",
-		"transistor/amos_fdsoi28n_core.json",
-		"transistor/dmos_fdsoi28n_core.json",
-		"transistor/amos_fdsoi28n_io.json",
-		"digital/tapcells/fdsoi28n/avss.json",
-		"analog/transmissiongates.json",
-        "digital/stdcells/core.json",
-		"digital/component/register.json",
-		"dcdc/capbuck.json"
 
+{
+
+    "cells":
+    [
+        { "name": "TGX1_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "beforeRoute" : {
+              "addDirectedRoutes" :[
+                  ["PO","C","MN0:G-MP0:G"],
+				  ["M1","CN","MN1$:G-|--MP0:D","offsetlow"],
+				  ["M1","CN","MN2$:G||MN1$:G",""],
+				  ["M1","A","MN1:S-MP1:S"],
+				  ["M1","A","MN2:S-MP2:S"],
+				  ["M1","B","MN1:D-MP1:D"],
+				  ["M1","B","MN2:D-MP2:D"]
+              ],
+              "addConnectivityRoutes" : [
+				  ["M1","C","||","onTopLeft","","MP"],
+				  ["M1","A$","|-","","","MN"],
+				  ["M1","B$","-|","","","MP"]
+              ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["C","M1", "MP0:G"]
+                                 ]
+          }
+        },
+		{ "name" : "TGX2_CV" , "inherit" : "TGX1_CV"}
+
+	
     ]
 }

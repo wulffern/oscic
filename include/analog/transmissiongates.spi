@@ -1,0 +1,40 @@
+**********************************************************************
+**        Copyright (c) 2017 Carsten Wulff Software, Norway 
+** *******************************************************************
+** Created       : wulff at 2017-6-24
+** *******************************************************************
+**   This program is free software: you can redistribute it and/or modify
+**   it under the terms of the GNU General Public License as published by
+**   the Free Software Foundation, either version 3 of the License, or
+**   (at your option) any later version.
+** 
+**   This program is distributed in the hope that it will be useful,
+**   but WITHOUT ANY WARRANTY; without even the implied warranty of
+**   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**   GNU General Public License for more details.
+** 
+**   You should have received a copy of the GNU General Public License
+**   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+**********************************************************************
+
+
+.subckt TGX1_CV C A B BULKP BULKN AVDD AVSS
+MN0 CN C AVSS BULKN NCHDL
+MN1 A C B BULKN NCHDL
+MP0 CN C AVDD BULKP PCHDL
+MP1 A CN B BULKP PCHDL
+.ends
+
+
+.subckt TGX2_CV C A B BULKP BULKN AVDD AVSS
+MN0 CN C AVSS BULKN NCHDL
+MN1 A C B BULKN NCHDL
+MN2 A C B BULKN NCHDL
+MP0 CN C AVDD BULKP PCHDL
+MP1 A CN B BULKP PCHDL
+MP2 A CN B BULKP PCHDL
+.ends
+
+
+
+

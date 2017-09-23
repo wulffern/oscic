@@ -1,7 +1,7 @@
 //====================================================================
 //        Copyright (c) 2017 Carsten Wulff Software, Norway 
 // ===================================================================
-// Created       : wulff at 2017-5-14
+// Created       : wulff at 2017-7-16
 // ===================================================================
 //   This program is free software: you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
@@ -16,22 +16,45 @@
 //   You should have received a copy of the GNU General Public License
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //====================================================================
-{
-	"options" :
-	{
-		"ignoreSetYoffsetHalf" : true
-	},
-	"include" :
-    [
-		"passive/capacitor.json",
-		"transistor/amos_fdsoi28n_core.json",
-		"transistor/dmos_fdsoi28n_core.json",
-		"transistor/amos_fdsoi28n_io.json",
-		"digital/tapcells/fdsoi28n/avss.json",
-		"analog/transmissiongates.json",
-        "digital/stdcells/core.json",
-		"digital/component/register.json",
-		"dcdc/capbuck.json"
 
-    ]
+{ "cells" :
+  [
+	  { "name" : "TGX2_EV" , "inherit" : "TGX2_CV", "spiceRegex" : [ ["NCHDL","NCHAEL"],["PCHDL","PCHAEL"]]},
+
+	  {"name" : "CAPB", "inherit" : "CAPBASE",
+	   "afterNew" : {
+		   "copyColumns" :[
+               { "count" : 74, "offset" : 7,"length" : 2}
+           ]
+	   }
+	  },
+	  
+	  {"name" : "CAPBUCK_SWITCH_EV",
+	   "noPowerRoute" : 1,
+	   "boundaryIgnoreRouting" : 0,
+	   "afterPlace" : [
+		   {"addRouteRings" : [
+			   ["M3","VI","b",8,4],
+			   ["M3","VO","b",8,4],
+			   ["M3","VN","b",8,4],
+			   ["M3","NN","t",8,4],
+			   ["M3","NP","t",8,4]
+			   
+		   ]}
+	   ]
+	   
+	  },
+
+	  {"name" : "CAPBUCK_CAP_EV",
+	   "noPowerRoute" : 1
+	  },
+
+	  {"name" : "CAPBUCK_EV",
+	   "noPowerRoute" : 1
+	  }
+	  
+
+	  
+
+  ]
 }

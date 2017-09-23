@@ -1,0 +1,80 @@
+//====================================================================
+//        Copyright (c) 2017 Carsten Wulff Software, Norway 
+// ===================================================================
+// Created       : wulff at 2017-9-23
+// ===================================================================
+//   This program is free software: you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation, either version 3 of the License, or
+//   (at your option) any later version.
+// 
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+// 
+//   You should have received a copy of the GNU General Public License
+//   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//====================================================================
+
+{
+    "cells":
+    [
+		
+		
+		{ "name" : "RGRN8X1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "alternateGroup" : 1,
+		  "noPowerRoute" : 1,
+		  "boundaryIgnoreRouting" : 0,
+          "afterPlace" : {
+              "addRouteRings" : [
+                  ["M1","CK","b"]
+              ],
+              "addPowerRings" :[
+                  ["M1","AVSS","t"],
+                  ["M1","AVDD","t"]
+              ]
+          },
+          "beforeRoute" : {
+              "addPowerConnections" : [
+                  ["AVSS","X","top"],
+                  ["AVDD","X","top"]
+              ],
+              "addRouteConnections" : [
+                  ["CK","X","bottom","M2"]
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnGraphs" : [ ["DI|DO|CK"]]
+          }
+        },
+
+				{ "name" : "SRGRN8X1_CV",
+		  "noPowerRoute" : 1,
+		  "boundaryIgnoreRouting" : 0,
+		  "class" : "Layout::LayoutDigitalCell",
+		  "beforeRoute" : {
+              "addConnectivityRoutes" : [
+				  ["M3","D<(7|5|3|1)>","-|--", "onTopL,offsethigh,track28"],
+				  ["M3","D<(6|4|2)>","-|--", "onTopL"]
+              ]
+          },
+		  "afterRoute" : {
+			  "addPortOnRects" : [ ["D<7>","M1","X:DO<7>"],
+								   ["D<6>","M1","X:DO<6>"],
+								   ["D<5>","M1","X:DO<5>"],
+								   ["D<4>","M1","X:DO<4>"],
+								   ["D<3>","M1","X:DO<3>"],
+								   ["D<2>","M1","X:DO<2>"],
+								   ["D<1>","M1","X:DO<1>"],
+								   ["D<0>","M1","X:DO<0>"]
+								   
+
+								 ]
+		  }
+		}
+
+		
+	]
+}
