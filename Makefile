@@ -17,15 +17,19 @@
 ##   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ######################################################################
 
-cic=../ciccreator/bin/cic
-cicg=../ciccreator/bin/cic-gui
-cics2aimspice=../ciccreator/scripts/cics2aimspice
-tech=../ciccreator/examples/tech.json
+cicdir = ../../ciccreator
+cic=${cicdir}/bin/cic
+cicg=${cicdir}/bin/cic-gui
+cics2aimspice=${cicdir}/scripts/cics2aimspice
+tech=${cicdir}/examples/tech.json
 lib = tb_stdlib
 
+
+
 compile:
+	-mkdir build
 	cd build; ${cic} --I ../include ../src/${lib}.json ${tech} ${lib}
-	cd build; ${cics2aimspice} ${lib}.cics ${lib}.spice
+	cd build; ${cics2aimspice} ${lib}.cic ${lib}.spice
 
 view:
-	cd build; ${cicg} ${tech} ${lib}.cicl &
+	cd build; ${cicg} ${tech} ${lib}.cic &
