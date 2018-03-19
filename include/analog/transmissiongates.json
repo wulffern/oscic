@@ -21,6 +21,48 @@
 
     "cells":
     [
+		        { "name": "SWX2_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "symbol" : "",
+          "inherit" : "IVX2_CV",
+          "beforeRoute" : [
+              {"addVias" :  [
+                  ["M3","M4","MP1:D",2,2,8,"CUST_VREF"]
+              ]},
+              {"addDirectedRoutes" : [
+                  ["M3","VREF","MP0:S,MP1:D-|--CUST_VREF","noendcut"]
+              ]}
+          ],
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["VREF","M4","CUST_VREF"]]
+          }
+        },
+        { "name": "SWX4_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "symbol" : "",
+          "setYoffsetHalf" :  "" ,
+		  "decorator" : [
+			  {"ConnectSourceDrain" : ["M1","||",""]}
+		  ],
+		  
+          "rows" : 4,
+          "beforeRoute" : [
+              {"addVias" :  [
+				  ["M3","M4","MP1:D",2,2,8,"CUST_VREF"]
+              ]},
+              {"addDirectedRoutes" : [ ["M1","Y","MN0:D,MN2:D-|--MP0:D,MP2:D"],
+                                       ["PO","A","MN:G-MP:G"] ,
+                                       ["M1","A","MN0:G||MN3:G"] ,
+                                       ["M1","A","MP0:G||MP3:G"],
+                                       ["M3","VREF","MP0:S,MP1:D,MP3:D-|--CUST_VREF","noendcut"]
+                                     ]}
+          ],
+          "afterRoute"  : {
+
+              "addPortOnRects" : [  ["A","M1", "MN0:G"] , ["Y", "M1", "MN0:D"],["VREF","M4","CUST_VREF"]]
+          }
+        },
+
         { "name": "TGX1_CV" ,
           "class" : "Layout::LayoutDigitalCell",
           "beforeRoute" : {

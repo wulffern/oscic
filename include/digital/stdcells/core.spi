@@ -18,6 +18,12 @@
 **********************************************************************
 
 
+.subckt DMY_CV
+MN0  NCHDLDMY
+MP0  PCHDLDMY
+.ends DNY_CV
+
+
 .subckt TIEH_CV Y BULKP BULKN AVDD AVSS
 MN0 A A AVSS BULKN NCHDL
 MP0 Y A AVDD BULKP PCHDL
