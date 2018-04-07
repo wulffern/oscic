@@ -1,0 +1,37 @@
+{
+    "include" :
+    [
+        "DFRNQNX1_CV.json"
+    ],
+
+    "cells":
+    [
+        { "name" : "RGRN8X1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "alternateGroup" : 1,
+          "noPowerRoute" : 1,
+          "boundaryIgnoreRouting" : 0,
+          "afterPlace" : {
+              "addRouteRings" : [
+                  ["M1","CK","b"]
+              ],
+              "addPowerRings" :[
+                  ["M1","AVSS","t"],
+                  ["M1","AVDD","t"]
+              ]
+          },
+          "beforeRoute" : {
+              "addPowerConnections" : [
+                  ["AVSS","X","top"],
+                  ["AVDD","X","top"]
+              ],
+              "addRouteConnections" : [
+                  ["CK","X","bottom","M2"]
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnGraphs" : [ ["DI|DO|CK"]]
+          }
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+* 8-bit shift register
+.SUBCKT SRGRN8X1_CV SI CK SO AVDD AVSS
++ D<0> RN SI
+XI0 SI D<7> D<6> D<5> D<4> D<3> D<2> D<1> CK  RN  D<7> D<6> D<5> D<4> 
++ D<3> D<2> D<1> SO  AVDD AVSS  RGRN8X1_CV
+.ENDS
