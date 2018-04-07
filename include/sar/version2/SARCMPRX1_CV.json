@@ -1,0 +1,24 @@
+{
+  "cells":
+ [
+        { "name": "SARCMPRX1_CV",
+          "symbol" : "",
+          "inherit" : "SARCMPX1_CV",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["M1","CNO_I","XA2$:MP6:S-|--XA3$:MP4:G,XA3a:MP0:G"],
+                  ["M2","N2","XA2$:MN5:D|-XA2b$:MN1:D"],
+                  ["M2","N2","XA3b$:MN5:D|-XA3$:MN1:D"]
+              ],
+              "addConnectivityRoutes" : [
+                  ["M2","N1A","-|--","track2"]
+              ]
+
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["CPIR","M1","XA2b$:MN5:G" ],["CNIR","M1","XA3b$:MN5:G" ] ]
+          }
+
+        }
+  ]
+}

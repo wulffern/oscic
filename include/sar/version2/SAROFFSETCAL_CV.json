@@ -1,0 +1,28 @@
+{
+  "cells":
+ [
+        { "name" : "SAROFFSETCAL_CV", "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "noPowerRoute" : 1,
+          "boundaryIgnoreRouting" : 1,
+          "beforeRoute" : {
+              "addConnectivityRoutes" : [
+                  ["M2","CTRL_P<0>","-|--","onTopL,track16","",""],
+                  ["M2","CTRL_P<1>","-|--","onTopL,track14","",""],
+                  ["M2","CTRL_P<2>","-|--","onTopL,track12","",""],
+                  ["M2","CTRL_P<3>","-|--","onTopL,track10","",""],
+                  ["M2","CTRL_P<4>","-|--","onTopL,track","",""],
+                  ["M2","CTRL_N<0>","-|--","onTopL,track10","",""],
+                  ["M3","CTRL_N<1>","-|--","onTopL,track8","",""],
+                  ["M3","CTRL_N<2>","-|--","onTopL,track6","",""],
+                  ["M2","CTRL_N<3>","-|--","onTopL,track4","",""],
+                  ["M2","CTRL_N<4>","-|--","onTopL,track2","",""],
+                  ["M2","AVSS","-|--","onTopL,2cuts,2vcuts","","SAROFFSET"]
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["AVSS", "M1","XI15:AVSS"], ["AVDD", "M1","XI15:AVDD"] ]
+          }
+        }
+  ]
+}

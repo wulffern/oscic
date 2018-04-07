@@ -1,0 +1,35 @@
+{
+  "cells":
+ [
+        { "name": "STATECTRL_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "rows" : 9,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["M1","AM","XMN4:D-|--XMP1$:D","track1"],
+                  ["PO","A","XMN3:G-XMP3:G",""],
+                  ["PO","B","XMN2:G-XMP2:G",""],
+                  ["PO","AM","XMN6:G-XMP4:G",""]
+              ],
+              "addConnectivityRoutes" : [
+                  ["M1","NN3$","-|--","","",""],
+                  ["M1","NN4$","--|-","","",""],
+                  ["M1","NN1$","||","","",""],
+                  ["M2","NN2$","--|-","","",""],
+                  ["M1","EN$","--|-","","",""],
+                  ["M1","^N1$","--|-","","",""],
+                  ["M1","^N2$","||","","",""],
+                  ["M1","RST_N","-|--","","",""],
+                  ["M1","AM","-|--","onTopT,offsetlow","","NCH"],
+                  ["M1","NP2","-|--","","",""],
+                  ["M1","CK_CMP","--|-","onTopR","",""],
+                  ["M2","ENO","--|-","onTopR","",""]
+
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [  ["A","M1" ,"XMN3:G"] , ["B", "M1","XMN2:G"] , ["ENO", "M1","XMN7:D"],["EN","M1","XMN9:G"],["RST_N","M1","XMP9:G"],["CK_CMP","M1","XMN9:D"]]
+          }
+        }
+  ]
+}

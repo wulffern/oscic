@@ -1,0 +1,50 @@
+{
+  "cells":
+ [
+        { "name" : "SARNSCAPLOGIC_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+		  "afterPlace" : {
+              "addPortVias" : [
+                  ["M2","M4","RESN","X9$:MN1$:D",1,2,-3,-1,"CUST_RESN"],
+				  ["M2","M4","RESP","X9b$:MN1$:D",1,2,-3,-1,"CUST_RESP"],
+				  ["M2","M3","SARP","X8$:MP1b$:S",1,2,0.5,1,"CUST_SARP"],
+				  ["M2","M3","SARN","X9$:MP1b$:S",1,2,0.5,1,"CUST_SARN"]
+				  ]
+		  },
+          "beforeRoute" : {
+			  "addDirectedRoutes": [
+				  ["M2","RESPD","X9$:MN1$:D--|-CUST_RESN"],
+				  ["M2","RESND","X9b$:MN1$:D--|-CUST_RESP"],
+				  ["M2","SARND","X8$:MP1b$:S-|--CUST_SARP"],
+				  ["M2","SARPD","X9$:MP1b$:S-|--CUST_SARN"]
+			  ],
+			  
+              "addConnectivityRoutes" : [
+                  ["M1","DN","-|--",""],
+				  ["M2","DLO","-|--","onTopR"],
+                  ["M2","DONE_IN","|-","onTopB"],
+                  ["M2","SMPL","-|--","onTopR"],
+                  ["M2","TIEL","-|--","onTopB"],
+                  ["M2","SARP","--|-","onTopB,track2"],
+                  ["M2","SARN","-|--","onTopB"],
+                  ["M2","RESP","--|-","onTopB,track8"],
+                  ["M2","RESN","--|-","onTopB"]
+
+              ]
+          },
+		  "afterRoute" : {
+              "addPortOnRects" : [
+				  ["RESP","M4","CUST_RESP"],
+				  ["RESN","M4","CUST_RESN"],
+				  ["SARP","M3","CUST_SARP"],
+				  ["DONE_IN","M2","X5a:A"],
+				  ["EN","M1","X5a:XA1:MP1:G"],
+				  ["SARN","M3","CUST_SARN"]
+					 
+								 ]
+          }
+
+        }
+  ]
+}

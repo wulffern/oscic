@@ -1,0 +1,22 @@
+{
+  "cells":
+ [
+        { "name" : "SAROFFSETCAL_NCH_CV", "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "noPowerRoute" : 1,
+          "boundaryIgnoreRouting" : 1,
+          "beforeRoute" : {
+              "addConnectivityRoutes" : [
+                  ["M1","CTRL<4>$","||","onTopL","",""],
+                  ["M1","CTRL<3>$","||","onTopL","",""],
+                  ["M1","CTRL<2>$","||","onTopL","",""],
+                  ["M1","CTRL<1>$","||","onTopL","",""],
+                  ["M1","OFF$","-|","onTopB","",""]
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["CTRL<1>", "M1","XB1<1>:G"], ["CTRL<2>", "M1","XB2<0>:G"],["CTRL<3>", "M1","XB3<0>:G"],["CTRL<4>", "M1","XB4<6>:G"],["AVSS","M1","XB4a:B"],["OFF","M1","XB4<8>:S"] ]
+          }
+        }
+  ]
+}

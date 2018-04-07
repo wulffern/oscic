@@ -1,0 +1,20 @@
+{
+  "cells":
+ [
+        { "name": "SARBSSWCTRL_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" : "",
+          "rows": 2,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["M1","GN","MN1:D-|--MP0:S"],
+                  ["M1","GN","MP0:S-|--MP1:G"]
+              ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["GNG","M1", "MP0:D"] , ["TIE_H", "M1", "MN1:G"],["GN","M1","MN1:D"]]
+          }
+
+        }
+  ]
+}

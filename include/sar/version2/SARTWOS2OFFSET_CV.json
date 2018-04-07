@@ -1,0 +1,25 @@
+{
+  "cells":
+ [
+        { "name" : "SARTWOS2OFFSET_CV", "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "boundaryIgnoreRouting" : 1,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["M1","CTR5_N","XXC1:MP0:D-|--XXC3:MP1:G"],
+                  ["M1","CTR5_N","XXC1:MP0:D-|--XXC2:XA1:MP0:G"]
+              ],
+              "addConnectivityRoutes" : [
+                  ["M1","CTR<4>","|-","onTopB","",""],
+                  ["M1","CTR<3>","|-","onTopB","",""],
+                  ["M1","CTR<2>","|-","onTopB","",""],
+                  ["M1","CTR<1>","|-","onTopB","",""],
+                  ["M1","CTR<0>","|-","onTopB","",""]
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["CTR<5>", "M1","XXC1:MP0:G"],["CTR<4>", "M1","XXC2<4>:XA1:MP1:G"],["CTR<3>", "M1","XXC2<3>:XA1:MP1:G"],["CTR<2>", "M1","XXC2<2>:XA1:MP1:G"],["CTR<1>", "M1","XXC2<1>:XA1:MP1:G"],["CTR<0>", "M1","XXC2<0>:XA1:MP1:G"] ]
+          }
+        }
+  ]
+}

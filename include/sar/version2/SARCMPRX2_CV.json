@@ -1,0 +1,17 @@
+{
+  "cells":
+ [
+        { "name": "SARCMPRX2_CV",
+          "symbol" : "",
+          "inherit" : "SARCMPRX1_CV",
+          "spiceRegex" : [ ["IVX4_CV","IVX8_CV"] ],
+          "beforeRoute" : {
+              "Unused_addDirectedRoutes" : [
+                  ["M1","CNO_I","XA2b?$:MP6:S-|--XA3a:XA0:MP0:G"],
+                  ["M2","CPO_I","XA3b?$:MP4:S-|--XA2a:XA0:MP0:G"]
+              ]
+          }
+
+        }
+  ]
+}

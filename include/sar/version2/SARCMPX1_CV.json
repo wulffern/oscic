@@ -1,0 +1,34 @@
+{
+  "cells":
+ [
+        { "name": "SARCMPX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "description" : "Strong-arm comparator",
+          "composite" : 1,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["M1","N1","XA2$:MN4:D|-XA3$:MN4:D"],
+                  ["M1","CK_N","XA10$:A-|--XA9$:Y"],
+                  ["M1","CK_B","XA10$:A|-XA1$:CK"],
+                  ["M1","CNO_I","XA2b?$:MP6:S-|--XA3b?$:MP4:G,XA3a:MP0:G"],
+				  ["M2","RST","XA13:XA1:B-|--XA11:Y"],
+                  ["M2","CPO_I","XA3b?$:MP4:S-|--XA2b?$:MP5:G,XA2a:MP0:G"]
+
+              ],
+              "addConnectivityRoutes" : [
+                  ["M1","CK_B","--|-","onTopL","","SAR"],
+                  ["M2","CK_N","--|-","onTopB,track7","",""],
+                  ["M2","RST","--|-","track0","","DF|AN"],
+                  ["M3","TIEH","--|-","track0","",""],
+                  ["M2","C(P|N)I","-|--","onTopB","",""],
+                  ["M2","NN1","-|--","onTopL","",""]
+
+              ]
+          },
+
+          "afterRoute" : {
+              "addPortOnRects" : [ ["CK_SAMPLE","M1"] ,["CK_CMP","M1"],["DONE","M1"],["CNO", "M1"], ["CPO","M1"] ,["CPI","M1","XA2:CI" ], ["CNI","M1","XA4:CI" ] ]
+          }
+        }
+  ]
+}

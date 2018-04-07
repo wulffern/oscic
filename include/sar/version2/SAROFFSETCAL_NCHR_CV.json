@@ -1,0 +1,12 @@
+{
+  "cells":
+ [
+        { "name" : "SAROFFSETCAL_NCHR_CV", "inherit" : "SAROFFSETCAL_NCH_CV", "spiceRegex" : [ ["NCHDL","NCHDLR"],["NCHD ","NCHDR"]],
+
+          "afterRoute" : {
+              "addPortOnRects" : [ ["OFF","M1","XB4<9>:S"] ]
+          }
+
+        }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "cells":
+ [
+        { "name" : "SARBSSW_CV", "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "beforeRoute" : {
+              "addVias" : [ ["M1","M3","XA4:GNG",2],
+                            ["M3","M4","XA4:GNG",2,1,6,"CUST_GNG"]
+                          ],
+              "addRouteHorizontalRects" : [["M3","XA4:GNG",6]],
+
+              "addDirectedRoutes" : [
+                  ["M1", "VI", "M1:D|-M:D"],
+                  ["M1", "GN", "M1:G||M4:G"],
+                  ["M2", "CKN","XA0:MP0:D-|--XA3:C"],
+                  ["M3", "CKN","XA4:MN0:G-|--XA0:MN0:D"],
+                  ["M1", "TIE_L", "M5:G||M8:G"],
+                  ["M2", "TIE_H", "XA4:TIE_H-|--XA1:Y"],
+                  ["M2", "TIE_L", "M8:G-|--XA2:Y",""],
+                  ["M2", "VI","M3:D-|--XA3:A","offsethighend,track10"],
+                  ["M3", "GN","M4:G-|--XA4:GN"],
+                  ["M4", "GNG","XCAPB1:XA1:A--|-CUST_GNG"],
+                  ["M3", "VS","XA3:B-|--XCAPB0:XA1:B"],
+                  ["M4", "GNG","XCAPC0:A-|XCAPC:A","30space"],
+                  ["M3", "VS","XCAPC0:B--|XCAPC:B"],
+                  ["M1", "VO1", "M1:S-|M[234]:S"],
+                  ["M1", "VO2", "M5:S-|M[678]:S"]
+              ],
+              "addConnectivityRoutes" : [
+                  ["M2","CSRC","-|--","onTopB","",""]
+              ]
+          },
+          "afterRoute" : {
+              "addPortVias" : [
+                  ["M1","M4","VI","M1:D",1,2,-1,-0.5]
+              ],
+              "addPortOnRects" : [ ["CK","M1"],["VO1","M1","M4:S"],["VO2","M1","M8:S"]]
+          }
+        }
+  ]
+}

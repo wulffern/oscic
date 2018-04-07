@@ -1,0 +1,10 @@
+{
+  "cells":
+ [
+        { "name": "SARCMPX2_CV",
+          "inherit" : "SARCMPX1_CV",
+          "spiceRegex" : [ ["IVX4_CV","IVX4_CV"] ]
+
+        }
+  ]
+}

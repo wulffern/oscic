@@ -1,0 +1,49 @@
+{
+  "cells":
+ [
+        { "name": "SARDIGMX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "hasPR" : 1,
+          "boundaryIgnoreRouting" : 1,
+          "afterPlace" : {
+              "addPortVias" : [
+
+                  ["M1","M4","CN1","XA7:MN0:G",1,2,-1,-0.5],
+                  ["M1","M4","CP0","XA8:MN0:D",2,1,6,-0.5],
+                  ["M1","M4","CN0","XA9:MN0:D",2,1,8,-0.5,"CUST_CN0C"],
+                  ["M2","M3","CK_CMP","XA1:CK_CMP",1,2,0.5,4,"CUST_CK_CMP"],
+                  ["M1","M2","DO","XA11:Q",2,1,4,-0.5,"CUST_DO"]
+              ]
+
+          },
+          "beforeRoute" : {
+              "addConnectivityRoutes" : [
+                  ["M1","^EN$","--|-","onTopL","",""],
+                  ["M1","^ENO_N$","-|--","onTopL","",""],
+                  ["M1","^ENO$",">-|--","onTopL","","IVX|STATE"],
+                  ["M4","^ENO$","||","onTopL","","IVX|DF"],
+
+                  ["M1","^RST_N$","-|--","onTopR","",""],
+                  ["M1","CHL_ON","-|--","onTopL","",""],
+                  ["M1","CN1","-|--","onTopL","",""],
+                  ["M2","CP0","-|--","onTopL","",""],
+                  ["M1","^ARST_N$","--|-","onTopR","",""],
+                  ["M2","DINT","--|-","onTopL","",""],
+                  ["M2","CMP_OP","--|-","onTopB","",""],
+                  ["M2","CMP_ON","--|-","onTopB,track2","",""],
+                  ["M4","VREF","||","onTopL","",""]
+              ],
+              "addDirectedRoutes" :[
+                  ["M2","CK_CMP","XA1:CK_CMP-|--CUST_CK_CMP"],
+                  ["M2","CHL_OP","XA4:MP2:D-|--XA8:MP0:G"]
+              ]
+
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["CMP_OP", "M1","XA4:A"],["CMP_ON", "M1","XA5:A"], ["RST_N", "M1","XA5:RST_N"] , ["EN", "M1","XA1:EN"],  ["ENO", "M1","XA1:ENO"], ["VREF", "M4" ,"XA2:VREF"],["CK_CMP","M3","CUST_CK_CMP"], ["ARST_N","M1","XA11:RN"] ]
+          }
+
+        }
+  ]
+}

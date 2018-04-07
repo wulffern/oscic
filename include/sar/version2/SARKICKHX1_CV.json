@@ -1,0 +1,25 @@
+{
+  "cells":
+ [
+        { "name": "SARKICKHX1_CV",
+          "description" : "Kick generator for SARCMP",
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" :  "" ,
+          "rows" : 7,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [   ["M1","N1","MN0:D||MN6:S"],
+                                        ["M1","N1","MN0:D-|--MP0:S"],
+                                        ["M1","CI","MN1:G||MN5:G"],
+                                        ["PO","CKN","MN0:G-MP0:G"],
+                                        ["M1","NC","MP1:G||MP6:G"],
+                                        ["M1","NC","MP1:S||MP6:D"],
+                                        ["M1","NC","MN6:D-MP6:D"],
+                                        ["M1","NC","MP6:D-|--MP6:G"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["AVDD","M4"], ["CK","M1", "MN6:G" ],["CKN","M1","MN0:G"],["CI","M1","MN1:G"]]
+          }
+        }
+  ]
+}
