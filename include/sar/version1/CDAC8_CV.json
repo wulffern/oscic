@@ -1,0 +1,6 @@
+{
+  "cells":
+ [
+		{ "name": "CDAC8_CV", "class" : "Layout::LayoutCDACSmall" }
+  ]
+}

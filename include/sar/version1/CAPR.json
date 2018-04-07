@@ -1,0 +1,6 @@
+{
+  "cells":
+ [
+        {"name" : "CAPR" , "inherit" : "CAP", "afterPaint" : { "mirrorCenterY" : 0 }}
+  ]
+}

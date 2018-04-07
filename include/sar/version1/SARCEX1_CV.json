@@ -1,0 +1,25 @@
+{
+  "cells":
+ [
+        { "name": "SARCEX1_CV",
+          "description" : "Conditional pull up, UP = A | B, DOWN = RST",
+          "class" : "Layout::LayoutDigitalCell",
+          "rows" : 4,
+          "setYoffsetHalf" :  "" ,
+		  		  "decorator" : [
+			  {"ConnectSourceDrain" : ["M1","||",""]}
+		  ],
+
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","CHL","MN3:D-|--MP0:S,MP3:D"],
+                                      ["M1","RST","MN0:G||MN3:G"],
+                                      ["M1","A","MP1:G||MP0:G"],
+                                      ["M1","B","MP2:G||MP3:G"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1","MP0:G"],["B", "M1","MP2:G"], ["RST", "M1","MN1:G"] , ["A", "M1"], ["Y", "M1"], ["AVDD","M4"], ["AVSS","M4"]  ]
+          }
+        }
+  ]
+}

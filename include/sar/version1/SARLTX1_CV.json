@@ -1,0 +1,23 @@
+{
+  "cells":
+ [
+        { "name": "SARLTX1_CV",
+          "description" : "Conditional pull down, DOWN = A & EN & LCK_N, UP = RST_N",
+          "class" : "Layout::LayoutDigitalCell",
+          "rows" : 3,
+          "setYoffsetHalf" :  "" ,
+		  		  "decorator" : [
+			  {"ConnectSourceDrain" : ["M1","||",""]}
+		  ],
+
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","CHL","MN2:D-|--MP2:D"],
+                                      ["M1","RST_N","MP0:G||MP2:G"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1"], ["RST_N", "M1","MP2:G"] , ["EN", "M1"], ["LCK_N", "M1"], ["CHL", "M1"], ["AVDD","M4"], ["AVSS","M4"]  ]
+          }
+        }
+  ]
+}

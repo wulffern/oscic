@@ -33,7 +33,8 @@
 //		"digital/stdcells/ANX4_CV.json"
 //		"digital/stdcells/ANX8_CV.json"
 		//		"digital/stdcells/DFRNQNX1_CV.json"
-		"digital/SRGRN8X1_CV.json"
+//		"analog/TGX2_CV.json"
+		"passive/CAPBW.json"
 		
 //		"analog/transmissiongates.json",
 //      "digital/stdcells/core.json",

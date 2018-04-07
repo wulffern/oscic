@@ -1,0 +1,5 @@
+* CAPX1_CV 
+.subckt CAPX1_CV A B
+XA1 A B CAPR
+XB1 A B CAP
+.ends

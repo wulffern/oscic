@@ -1,0 +1,6 @@
+{
+  "cells":
+ [
+        { "name": "CDAC6_CV", "inherit" :"CDAC8_CV"}
+  ]
+}

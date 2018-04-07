@@ -1,0 +1,25 @@
+{
+  "cells":
+ [
+        { "name": "SARBSSWCTRL_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" : "",
+		  "decorator" : [
+			  {"ConnectSourceDrain" : ["M1","||",""]}
+		  ],
+
+          "rows": 2,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["PO","C","MN0:G-MP0:G"],
+                  ["M1","GN","MN1:D-|--MP0:S"],
+                  ["M1","GN","MP0:S-|--MP1:G"]
+              ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["GNG","M1", "MP0:D"] , ["TIE_H", "M1", "MN1:G"],["C","M1","MP0:G"],["GN","M1","MN1:D"]]
+          }
+
+        }
+  ]
+}

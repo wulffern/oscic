@@ -1,0 +1,29 @@
+{
+  "cells":
+ [
+		{ "name": "TGPD_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" : "",
+		  		  "decorator" : [
+			  {"ConnectSourceDrain" : ["M1","||",""]}
+		  ],
+
+          "rows": 3,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","C","MN0:S-|--MP0:S"],
+                                      ["PO","C","MN0:G-MP0:G"],
+                                      ["M1","A","MN2:D-|--MP2:D"],
+                                      ["M1","B","MN2:S-|--MP2:S"],
+                                      ["M1","C","MN0:G||MN1:G"],
+                                      ["M1","CN","MN2:G-|--MN0:S"],
+                                      ["M1","C","MP0:G-|MP2:G"],
+                                      ["M4","NC","MP1:S-|--MP1:G"]
+                                    ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["C","M1", "MP0:G"],["B","M1","MP2:S"],["A","M1","MN2:D"]
+                                 ]
+          }
+        }
+  ]
+}

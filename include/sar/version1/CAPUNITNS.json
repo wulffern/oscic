@@ -1,0 +1,62 @@
+{
+  "cells":
+ [
+		        { "name" : "CAPUNITNS",
+          "class" : "Gds::GdsPatternCapacitor",
+          "yoffset": -0.5,
+          "xoffset": -0.5,
+		  "heightoffset": -100,
+          "widthoffset" : -1,
+          "verticalGrid" : 1000,
+          "horizontalGrid" : 1000,
+          "beforePaint" : {
+              "copyStringLayers" :[  ["M2","M1"] , ["M2","M3"]   ]
+          },
+          "fillCoordinatesFromStrings" : [
+              [   "M2",
+				  "----x-xxxxxxxxxkxxxxxxx---",
+				  "----x-----------------x---",
+                  "----xxxxxxxxxxxxkxxxx-x---",
+                  "----x-----------------x---",
+                  "----x-xxxxxxxxxxxxxxxxx---",
+                  "----x-----------------x---",
+				  "----xxxxxxxxxxxxxxxxx-x---",
+                  "----x-----------------x---",
+                  "----x-xxxxxxxxxxxxxxxxx---",
+                  "----x-----------------x---",
+                  "----xxxxxxxxxxxxxxxxx-x---",
+                  "----x-----------------x---",
+                  "----x-xxxxxxxxxxxxxxxxx---"
+
+              ],
+              [   "M4",
+                  "----x-xxxxxxxxxxxxxxxxB---",
+                  "----x-----------------x---",
+                  "----xxxxxxxxxxxxxxxxx-x---",
+				  "----x-----------------x---",
+                  "----x-xxxxxxxxxxxxxxxxx---",
+                  "----x-----------------x---",
+                  "----xxxxxxxxxxxxxxxxx-x---",
+                  "----A-----------------x---",
+                  "----x-xrxxxxxxxxxxxxxxx---",
+                  "----x-----------------x---",
+                  "----xxxxxxxxxxxxxxrxx-x---",
+                  "----x-----------------x---",
+                  "----x-xxxxxxxxxxxxxxxxx---"
+
+              ]
+
+          ],
+          "afterNew" : {
+              "copyColumns" :[
+                  { "count" : 9, "offset" : 9,"length" : 2}
+              ],
+              "copyRows" :   { "count" : 17,"offset" : 0, "length": 7}
+          },
+		  "afterPaint" : {
+			  "translate" : [0,-80000]
+		  }
+
+        }
+  ]
+}

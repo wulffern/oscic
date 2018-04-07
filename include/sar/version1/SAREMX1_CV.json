@@ -1,0 +1,27 @@
+{
+  "cells":
+ [
+		{ "name": "SAREMX1_CV",
+          "description" : "Enable propagation. ENO is 0 on RST. ENO = EN & (A | B) ",
+          "class" : "Layout::LayoutDigitalCell",
+          "rows" : 4,
+          "beforeRoute" : {
+              "addConnectivityRoutes": [
+                  ["M1","N1|N2","||",""],
+                  ["M1","N3","-|",""],
+                  ["M1","ENO","--|-","onTopR"],
+                  ["M1","AM","-|--","","","MP"]
+
+              ],
+              "addDirectedRoutes" : [ ["PO","A","MN1:G-MP1:G"],
+                                      ["PO","B","MN2:G-MP2:G"],
+                                      ["PO","AM","MN3:G-MP3:G"],
+                                      ["M1","AM","MN0:S-MP0:S"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1"], ["B", "M1"], ["RST_N", "M1"] , ["EN", "M1"], ["ENO", "M1", "MP1:S"]  ]
+          }
+        }
+  ]
+}

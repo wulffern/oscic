@@ -1,0 +1,36 @@
+{
+  "cells":
+ [
+        { "name": "SARDIGEX2_CV",
+          "description" : "Extention of SARDIG, it also gives an clock enable out (CEO) on C(N|P)(1|0) that can be used in the comparator delay loop. CEIN and CEO should be daisy chained (NOR chain)",
+          "inherit" : "SARDIGX1_CV",
+          "composite" : 1,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M2","ENO","XA7:MP0:G-|--XA1$:ENO"],
+                                      ["M1","ENO_N","XA8:MN0:G-|--XA7:MN0:D"],
+                                      ["M1","ENO_N","XA8:MN0:G||XA9:MN0:G"],
+                                      ["M2","CE","XA9:MN1:G-|--XA6:MN3:D"],
+                                      ["M1","CE1","XA10:MN0:G-|--XA9:MN1:D","offsetlow,trimstartleft"],
+                                      ["M1","CE1_N","XA11:MN0:G-|--XA10:MN0:D","offsetlow,trimstartleft"],
+                                      ["M1","CEO1","XA12:MN0:G-|--XA11:MN1:S"],
+                                      ["M1","CN0","XA5:MP0:D-|--XA6:MP0:G"],
+                                      ["M2","CP1","XA3:MP0:D-|--XA6:MP2:G"]
+                                    ],
+              "addConnectivityRoutes" : [
+                  ["M4","VREF","||"]
+              ]
+
+          },
+          "afterRoute" : [
+              {"addPortVias" : [
+                  ["M2","M3","ENO","XA1$:ENO",1,2,-1,-0.5],
+                  ["M2","M3","EN","EN",1,2,-1,-0.5],
+                  ["M2","M3","CMP_OP","CMP_OP",1,2,-1,-0.5]
+              ]},
+
+
+              {"addPortOnRects" : [ ["CEIN", "M1","XA11:MN1:G"], ["CEO", "M1","XA12:MP0:D"] , ["CKS", "M1"],["DONE", "M1"], ["VREF", "M4" ,"XA2:VREF"]]}
+          ]
+        }
+  ]
+}

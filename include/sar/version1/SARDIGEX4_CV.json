@@ -1,0 +1,11 @@
+{
+  "cells":
+ [
+        { "name": "SARDIGEX4_CV",
+          "inherit" : "SARDIGEX2_CV",
+          "spiceRegex" : [
+              ["SWX2_CV","SWX4_CV"]
+          ]
+        }
+  ]
+}

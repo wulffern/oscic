@@ -1,0 +1,6 @@
+{
+  "cells":
+ [
+        { "name": "CAP32C_CV" , "class" : "Layout::LayoutCapCellSmall","maxcap" : 32,"usem3" : 1}
+  ]
+}

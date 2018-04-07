@@ -1,0 +1,12 @@
+{
+  "cells":
+ [
+		{ "name": "RM1" , "class" : "cIcCore::PatternResistor",
+          "getRuleForHorizontalGrid" : ["M1","width"],
+          "getRuleForVerticalGrid" : ["M1","width"],
+          "afterNew" :{
+              "fillCoordinatesFromStrings" :[[  "M1","ArB"]]
+          }
+        }
+  ]
+}
