@@ -1,0 +1,40 @@
+{
+    "include" :
+    [
+        "NDX1_CV.json",
+        "IVX1_CV.json",
+		"IVTRIX1_CV.json",
+		"NDTRIX1_CV.json"
+    ],
+    "cells":
+    [
+        { "name": "DFRNQNX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "description" : "D-flip-flop with QN output, and active low reset",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","CKN","XA1:MP0:D-|--XA2:MP0:G","offsetlowend"],
+                                      ["M1","CKB","XA2:MP0:D-|--XA3:CN,XA7:CN"],
+                                      ["M1","CKB","XA4:C-|--XA2:MN0:D"],
+                                      ["M1","CKB","XA6:C-|--XA2:MN0:D","offsetlow"],
+                                      ["M2","CKN","XA4:CN,XA6:CN-|--XA1:MP0:D"],
+                                      ["M2","CKN","XA3:C-|--XA1:MN1:D","offsetlow"],
+                                      ["M3","CKN","XA7:C-|--XA6:CN"],
+                                      ["M1","A0","XA3:Y-|XA4:Y"],
+                                      ["M2","A0","XA6:Y-|--XA7:Y"],
+                                      ["M2","A0","XA5:MN0:G-|--XA4:MN1:D"],
+                                      ["M2","A1","XA5:MP0:D-|--XA4:MP0:G,XA6:MP0:G"],
+                                      ["M1","QN","XA8:MN0:G-|--XA7:MN1:D"],
+                                      ["M2","Q","XA8:MP0:D-|--XA7:MP0:G"],
+                                      ["M2","RN","XA1:MN1:G|-XA7:MN2:G"]
+                                    ],
+              "addConnectivityRoutes" : [
+
+              ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["D", "M1"], ["CK", "M1"], ["Q", "M1","XA8:MN0:D"],["QN","M1","XA7:MN1:D"] ,["RN","M2","XA1:MN1:G"]]
+          }
+        }
+    ]
+}

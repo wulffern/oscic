@@ -1,0 +1,21 @@
+{
+	"include" :
+	[
+		"IVX1_CV.json",
+		"NDX1_CV.json"
+	],
+    "cells":
+    [
+        { "name": "ANX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","YN","XA2:MN0:G-|--XA1:MN1:D"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1" ,"XA1:MN0:G"], ["B", "M1", "XA1:MN1:G"], ["Y", "M1", "XA2:MN0:D" ]]
+          }
+        }
+    ]
+}

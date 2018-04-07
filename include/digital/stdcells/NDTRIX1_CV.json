@@ -1,0 +1,27 @@
+{
+  "cells":
+ [
+		{ "name": "NDTRIX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" :  "" ,
+          "description" : "Tristate nand, Y = !A if C and !RN, Y =HiZ if CN",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","Y","MN1:D-|--MP1:D"],
+                                      ["M1","N2","MP2:S|-MP0:D"],
+                                      ["M1","N2","MN0:D-MP0:D"],
+                                      ["PO","A","MN0:G-MP0:G"],
+                                      ["PO","RN","MN2:G-MP2:G"]
+                                    ],
+			  "addConnectivityRoutes" : [
+				  ["M1","^N1$","||","onTopL"],
+				  ["M1","^N2$","||","onTopL","","MN"],
+				  ["M1","^N2$","||","onTopL","","MP(0|1)"]
+			  ]
+
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"], ["RN","M1","MN2:G" ],["Y","M1","MN1:D"], ["BULKP","M1","MP0:B"], ["BULKN","M1","MN0:B"]]
+          }
+        }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+	"include" :
+    [
+        "IVX1_CV.json",
+		"NRX1_CV.json"
+    ],
+
+  "cells":
+ [
+		{ "name": "ORX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "composite" : 1,
+          "beforeRoute" : {
+			  "addConnectivityRoutes" : [ ["M1", "^YN$","-|--"]]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1" ,"XA1:MN0:G"], ["B", "M1", "XA1:MN1:G"] ]
+          }
+        }
+  ]
+}

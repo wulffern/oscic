@@ -1,0 +1,5 @@
+
+.subckt DMY_CV
+MN0  NCHDLDMY
+MP0  PCHDLDMY
+.ends DNY_CV

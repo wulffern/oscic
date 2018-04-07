@@ -1,0 +1,11 @@
+{
+    "include" :
+    [
+        "IVX2_CV.json"
+    ],
+
+    "cells":
+    [
+        { "name": "IVX4_CV", "inherit" : "IVX2_CV"}
+    ]
+}

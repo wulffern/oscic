@@ -1,0 +1,21 @@
+{
+  "cells":
+ [
+        { "name": "IVTRIX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" :  "" ,
+          "description" : "Tristate inverter, Y = A if C, Y =HiZ if CN",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","Y","MN1:D-|--MP1:D"],
+                                      ["PO","A","MN0:G-MP0:G"]
+                                    ],
+			  "addConnectivityRoutes" : [
+				  ["M1","^N(1|2)$","||","onTopL"]
+				  ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1","MN0:G"], ["CN", "M1"], ["C", "M1"] ,["Y","M1","MN1:D"], ["BULKP","M1","MP0:B"], ["BULKN","M1","MN0:B"]]
+          }
+        }
+  ]
+}

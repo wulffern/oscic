@@ -1,0 +1,9 @@
+{
+  "cells":
+ [
+		        { "name": "DMY_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+		  "physicalOnly" : 1
+        }
+  ]
+}

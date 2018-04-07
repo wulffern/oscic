@@ -1,0 +1,19 @@
+{
+  "cells":
+ [
+		{ "name": "NRX1_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "setYoffsetHalf" :  "" ,
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","Y","MN0:D,MN1:S-|--MP1:D"],
+                                      ["M1","N1","MP0:D||MP1:S"],
+                                      ["PO","A","MN0:G-MP0:G"],
+                                      ["PO","B","MN1:G-MP1:G"]
+                                    ]
+          },
+          "afterRoute" : {
+              "addPortOnRects" : [ ["A", "M1" ,"MN0:G"], ["B", "M1", "MN1:G"], ["Y", "M1", "MN1:S" ], ["BULKP","M1","MP0:B"], ["BULKN","M1","MN0:B"]]
+          }
+        }
+  ]
+}

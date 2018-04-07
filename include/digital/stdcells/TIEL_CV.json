@@ -1,0 +1,15 @@
+{
+  "cells":
+ [
+		{ "name": "TIEL_CV",
+          "class" : "Layout::LayoutDigitalCell",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [ ["M1","A","MP:D-|--MP:G"],
+                                      ["PO","A","MN:G-MP:G"] ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["Y","M1", "MN0:D"] ]
+          }
+        }
+  ]
+}

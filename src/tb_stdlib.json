@@ -23,15 +23,20 @@
 	},
 	"include" :
     [
-		"passive/capacitor.json",
+//		"passive/capacitor.json",
 		"transistor/amos_fdsoi28n_core.json",
 		"transistor/dmos_fdsoi28n_core.json",
 		"transistor/amos_fdsoi28n_io.json",
 		"digital/tapcells/fdsoi28n/avss.json",
-		"analog/transmissiongates.json",
-        "digital/stdcells/core.json",
-		"digital/component/register.json",
-		"dcdc/capbuck.json"
+//		"digital/stdcells/ANX1_CV.json",
+//		"digital/stdcells/ANX2_CV.json"
+//		"digital/stdcells/ANX4_CV.json"
+//		"digital/stdcells/ANX8_CV.json"
+		"digital/stdcells/DFRNQNX1_CV.json"
+//		"analog/transmissiongates.json",
+//      "digital/stdcells/core.json",
+//		"digital/component/register.json",
+//		"dcdc/capbuck.json"
 
     ]
 }

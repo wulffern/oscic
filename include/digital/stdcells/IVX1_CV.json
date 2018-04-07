@@ -1,0 +1,21 @@
+{
+  "cells":
+ [
+		{ "name": "IVX1_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "beforeRoute" : {
+              "addDirectedRoutes" : [
+                  ["PO","A","MN:G-MP:G"]
+			  ],
+			  "addConnectivityRoutes" : [
+                  ["M1","^Y$","-|--","onTopL"],
+				  ["M1","^A$","||","onTopL","","MN"],
+				  ["M1","^A$","||","onTopL","","MP"]
+			  ]
+          },
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["A","M1", "MN0:G"] , ["Y", "M1", "MN0:D"], ["BULKP","M1","MP0:B"], ["BULKN","M1","MN0:B"] ]
+          }
+        }
+  ]
+}

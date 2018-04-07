@@ -1,0 +1,12 @@
+{
+    "include" :
+    [
+        "IVX2_CV.json",
+        "ANX1_CV.json"
+    ],
+
+    "cells":
+    [
+        { "name" : "ANX2_CV", "inherit" : "ANX1_CV", "spiceRegex" : [ ["IVX1","IVX2"] ]}
+    ]
+}

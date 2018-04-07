@@ -1,0 +1,6 @@
+{
+  "cells":
+ [
+        { "name" : "ORX4_CV", "inherit" : "ORX1_CV", "spiceRegex" : [ ["IVX1","IVX4"] ] }
+  ]
+}
