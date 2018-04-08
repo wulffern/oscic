@@ -1,10 +1,10 @@
 {
-	    "include" : [
+    "include" : [
         "CAP32C_CV.json"
     ],
 
-  "cells":
- [
+    "cells":
+    [
         { "name": "CDAC10_CV", "class" : "Layout::LayoutCDACSmall"}
-  ]
+    ]
 }
