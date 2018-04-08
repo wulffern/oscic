@@ -1,0 +1,4 @@
+* CAPX 
+.subckt CAPX A B D
+XA  D A B  CAP M=10
+.ends

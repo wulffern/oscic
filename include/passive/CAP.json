@@ -1,0 +1,15 @@
+{
+	"include" :[
+		"CAPBASE.json"
+	],
+  "cells":
+ [
+	  {"name" : "CAP", "inherit" : "CAPBASE",
+	   "afterNew" :{
+	       "copyColumns" :[
+               { "count" : 40, "offset" : 7,"length" : 2}
+		   ]
+	   }
+	  }
+  ]
+}

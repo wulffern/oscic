@@ -1,0 +1,93 @@
+{
+  "cells":
+ [
+      { "name" : "CAPBASE",
+        "boundaryIgnoreRouting" : 0,
+        "class" : "Gds::GdsPatternCapacitor",
+        "yoffset": -0.5,
+        "xoffset": -0.5,
+        "widthoffset" : -1,
+        "fillCoordinatesFromStrings" : [
+			[   "OD",
+                "--XXXXXXXXXXcXXXXXXXX--",
+                "-----------------------",
+				"--XXXXXXXXXXcXXXXXXXX--",
+				"-----------------------",
+				"--XXXXXXXXXXcXXXXXXXX--",
+				"-----------------------",
+				"--XXXXXXXXXXcXXXXXXXX--",
+				"----------------------",
+				"--XXXXXXXXXXcXXXXXXXX--"
+
+            ],
+			[   "PO",
+				"-----------------------",
+                "--XXXXXXXXcXXXXXXXXXX--",
+                "-----------------------",
+				"--XXXXXXXXcXXXXXXXXXX--",
+				"-----------------------",
+				"--XXXXXXXXcXXXXXXXXXX--",
+				"-----------------------",
+				"--XXXXXXXXcXXXXXXXXXX--",
+				"-----------------------"
+            ],
+			[   "M1",
+				"----XXXXXXXXXXXXXXX----",
+				"----X-X-X-X-X-X-X-X----",
+				"----X-X-X-X-X-X-X-X----",
+				"----X-X-X-X-X-X-X-X----",
+				"----X-X-X-D-X-X-X-X----",
+				"----X-X-X-X-X-X-X-X----",
+				"----X-X-X-X-X-X-X-X----",
+				"----X-X-X-X-X-X-X-X----",
+				"----XXXXXXXXXXXXXXX----"
+
+            ],
+
+
+
+            [   "M2",
+                "--x-xxkxxxxxxxxxkxxxx--",
+                "--x-----------------x--",
+                "--xxxxkxxxxxxxxxxxx-x--",
+                "--x-----------------x--",
+                "--x-xxxxxxxxxxxxkxxxx--",
+                "--x-----------------x--",
+                "--xxxxkxxxxxxxxxxxx-x--",
+                "--x-----------------x--",
+                "--x-xxkxxxxxxxxxkxxxx--"
+
+            ],
+            [   "M3",
+                "--x-xxkxxxxxxxxxkxxxx--",
+                "--x-----------------x--",
+                "--xxxxkxxxxxxxxxxxx-x--",
+                "--x-----------------x--",
+                "--x-xxxxxxxxxxxxkxxxx--",
+                "--x-----------------x--",
+                "--xxxxkxxxxxxxxxxxx-x--",
+                "--x-----------------x--",
+                "--x-xxkxxxxxxxxxkxxxx--"
+
+            ],
+            [   "M4",
+                "--x-xxxxxxxxxxxxxxxxx--",
+                "--x-----------------x--",
+                "--xxxxxxxxxxxxxxxxx-x--",
+                "--A-----------------B--",
+                "--x-xrxxxxxxxxxxxxxxx--",
+                "--x-----------------x--",
+                "--xxxxxxxxxxxxxxrxx-x--",
+                "--x-----------------x--",
+                "--x-xxxxxxxxxxxxxxxxx--"
+
+            ]
+
+        ],
+        "afterNew" : {
+            "getRuleForHorizontalGrid" : ["PO","space"],
+            "getRuleForVerticalGrid" : ["PO","space"]
+        }
+      }
+  ]
+}

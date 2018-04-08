@@ -1,0 +1,58 @@
+#!/usr/bin/perl
+######################################################################
+##        Copyright (c) 2018 Carsten Wulff Software, Norway
+## ###################################################################
+## Created       : wulff at 2018-4-7
+## ###################################################################
+##  The MIT License (MIT)
+##
+##  Permission is hereby granted, free of charge, to any person obtaining a copy
+##  of this software and associated documentation files (the "Software"), to deal
+##  in the Software without restriction, including without limitation the rights
+##  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+##  copies of the Software, and to permit persons to whom the Software is
+##  furnished to do so, subject to the following conditions:
+##
+##  The above copyright notice and this permission notice shall be included in all
+##  copies or substantial portions of the Software.
+##
+##  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+##  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+##  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+##  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+##  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+##  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+##  SOFTWARE.
+##
+######################################################################
+
+my $file = shift;
+open(fi, "< $file") or die "Could not find $file";
+my $found_cell = 0;
+my $stack =  0;
+my $name = "";
+my @buffer;
+while (<fi>) {
+
+  if (m/\s*.subckt\s+([^\s]+)\s+/ig) {
+    @buffer = ();
+    $name = $1;
+    $found_cell = 1;
+  }
+
+  if ($found_cell) {
+    push(@buffer,$_);
+  }
+
+  if ($found_cell && m/\s*.ends/ig) {
+    if ($name) {
+      open(fo," > ${name}.spi") or die "Could not open ${name}.spi";
+	  print fo "* ${name} \n";
+      $buffer[-1] =~ s/},$/}/ig;
+      print fo join("",@buffer);
+    } else {
+      print "Could not find name in ".join(@buffer)."\n";
+    }
+  }
+}
+close(fi) or die "Could not close $file";

@@ -1,0 +1,14 @@
+{
+	"include" :[
+        "CAP.json"
+    ],
+
+  "cells":
+ [
+	  { "name" : "CAPX",
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["A","M4","XA0:A" ] , ["B", "M4","XA0:B"]]
+          }
+	  }
+  ]
+}
