@@ -1,6 +1,9 @@
 {
-  "cells":
- [
-		{ "name": "CDAC8_CV", "class" : "Layout::LayoutCDACSmall" }
-  ]
+    "include" : [
+        "CAP32C_CV.json"
+    ],
+    "cells":
+    [
+        { "name": "CDAC8_CV", "class" : "Layout::LayoutCDACSmall" }
+    ]
 }

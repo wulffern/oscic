@@ -1,6 +1,16 @@
 {
-  "cells":
- [
+    "include" : [
+        "digital/DMY_CV.json",
+        "digital/IVX1_CV.json",
+        "digital/NDX1_CV.json",
+        "digital/NRX1_CV.json",
+        "SARMRYX1_CV.json",
+        "digital/SWX2_CV.json",
+        "SARCEX1_CV.json",
+        "SARDIGX1_CV.json"
+    ],
+    "cells":
+    [
         { "name": "SARDIGEX2_CV",
           "description" : "Extention of SARDIG, it also gives an clock enable out (CEO) on C(N|P)(1|0) that can be used in the comparator delay loop. CEIN and CEO should be daisy chained (NOR chain)",
           "inherit" : "SARDIGX1_CV",
@@ -32,5 +42,5 @@
               {"addPortOnRects" : [ ["CEIN", "M1","XA11:MN1:G"], ["CEO", "M1","XA12:MP0:D"] , ["CKS", "M1"],["DONE", "M1"], ["VREF", "M4" ,"XA2:VREF"]]}
           ]
         }
-  ]
+    ]
 }

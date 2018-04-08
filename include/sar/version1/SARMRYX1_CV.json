@@ -1,6 +1,11 @@
 {
-  "cells":
- [
+    "include" : [
+        "digital/IVX1_CV.json",
+        "SAREMX1_CV.json",
+        "SARLTX1_CV.json"
+    ],
+    "cells":
+    [
         { "name": "SARMRYX1_CV",
           "description" : "Logic cell for a SAR BIT",
           "description" : "CHL_(OP|ON) goes 0 on CMP_(OP|ON) rising if EN, CHL_(OP|ON) go high on RST_N",
@@ -22,5 +27,5 @@
 
           }
         }
-  ]
+    ]
 }

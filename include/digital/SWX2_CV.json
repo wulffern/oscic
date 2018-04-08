@@ -1,0 +1,24 @@
+{
+	"include" : [
+		"../digital/IVX1_CV.json"
+	],
+    "cells":
+    [
+        { "name": "SWX2_CV" ,
+          "class" : "Layout::LayoutDigitalCell",
+          "symbol" : "",
+          "inherit" : "IVX2_CV",
+          "beforeRoute" : [
+              {"addVias" :  [
+                  ["M3","M4","MP1:D",2,2,8,"CUST_VREF"]
+              ]},
+              {"addDirectedRoutes" : [
+                  ["M3","VREF","MP0:S,MP1:D-|--CUST_VREF","noendcut"]
+              ]}
+          ],
+          "afterRoute"  : {
+              "addPortOnRects" : [  ["VREF","M4","CUST_VREF"]]
+          }
+        }
+    ]
+}

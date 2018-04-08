@@ -1,6 +1,14 @@
 {
-  "cells":
- [
+    "include" : [
+        "digital/IVX1_CV.json",
+        "TGPD_CV.json",
+        "SARBSSWCTRL_CV.json",
+        "digital/TIEH_CV.json",
+        "digital/TIEL_CV.json",
+        "CAPX1_CV.json"
+    ],
+    "cells":
+    [
         { "name" : "SARBSSW_CV", "class" : "Layout::LayoutDigitalCell",
           "composite" : 1,
           "beforeRoute" : [
@@ -34,5 +42,5 @@
               {"addPortOnRects" : [ ["CK","M1"],["CKN","M1","XA3:C" ], ["TIE_L","M2"],["VO1","M1","M4:S"],["VO2","M1","M8:S"]]}
           ]
         }
-  ]
+    ]
 }

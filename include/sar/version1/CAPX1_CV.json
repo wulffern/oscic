@@ -1,11 +1,15 @@
 {
-  "cells":
- [
+    "include" : [
+        "CAP.json",
+        "CAPR.json"
+    ],
+    "cells":
+    [
         { "name": "CAPX1_CV" ,
           "class" : "Layout::LayoutDigitalCell",
           "afterRoute"  : {
               "addPortOnRects" : [  ["A","M4", "XA1:A"] , ["B", "M3", "XB1:B"]]
           }
         }
-  ]
+    ]
 }

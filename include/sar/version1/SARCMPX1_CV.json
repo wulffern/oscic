@@ -1,16 +1,21 @@
 {
-  "cells":
- [
+    "include" : [
+        "SARKICKHX1_CV.json",
+        "SARCMPHX1_CV.json",
+		"digital/DMY_CV.json",
+        "digital/IVX4_CV.json",
+        "digital/IVX1_CV.json",
+        "digital/NRX1_CV.json",
+        "digital/NDX1_CV.json"
+    ],
+    "cells":
+    [
         { "name": "SARCMPX1_CV",
           "class" : "Layout::LayoutDigitalCell",
           "description" : "Strong-arm comparator",
           "symbol" : "SARCMP",
           "composite" : 1,
           "beforeRoute" : {
-
-              "TaddDirectedRoutes" : [
-
-              ],
               "addDirectedRoutes" : [
                   ["M1","CNO_I","XA2b?$:MP6:S-|--XA3b?$:MP4:G,XA3a:MP0:G"],
                   ["M2","CPO_I","XA3b?$:MP4:S-|--XA2b?$:MP5:G,XA2a:MP0:G"],
@@ -31,5 +36,5 @@
               "addPortOnRects" : [ ["CK_SAMPLE","M1"] ,["CK_CMP","M1"],["DONE","M1"],["CNO", "M1","XA3a:Y"], ["CPO","M1","XA2a:Y"] ,["CPI","M1","XA1$:MN5:G" ],["CNI","M1","XA3$:MN5:G" ] ]
           }
         }
-  ]
+    ]
 }
